@@ -1,8 +1,28 @@
+body {
+    color: $puti;
+}
 h1, h2, h3 {
     font-family: 'Fjalla One', sans-serif;
     color: $saging;
 }
+h1 {
+    font-size: 4em;
+}
+h2 {
+    font-size: 2.6em;
+}
 
+.panel-content {
+    font-size: 1.8em;
+    color: $puti;
+}
+.panel-subcontent {
+    font-size: 1.2em;
+}
 .muted {
     color: $uban;
+}
+
+.uling {
+    color: $uling;
 }
