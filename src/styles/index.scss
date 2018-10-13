@@ -1,4 +1,6 @@
-$body-color: blue;
+@import 'vars';
+@import 'typography';
+
 
 body {
   color: $body-color;
