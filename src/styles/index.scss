@@ -1,7 +1,8 @@
+// Common sass files
 @import 'vars';
 @import 'typography';
 
+// Section related files
+@import 'header';
 
-body {
-  color: $body-color;
-}  
+
