@@ -1,10 +1,62 @@
 .illustration-panel {
     background: url('/public/images/illustration-bg.png') no-repeat center center;
     background-size: cover;
+    .img-logo {
+        width: 380px;
+    }
 }
 .event-panel {
     background: $lemonsito;
+    .event-info {
+        p {
+            line-height: .9em;
+            font-size: 1.3em;
+        }
+    }
 }
 .about-panel {
     background: $uling;
+}
+.venue-panel {
+    background: url('/public/images/bg_tickets.png') no-repeat top left ,$lemonsito;
+}
+.tickets-panel {
+    background: url('/public/images/bg_diamond_cropped.png') no-repeat 100% 180% , $sikwati;
+    // Small devices (landscape phones, less than 768px)
+    @media (max-width: 767px) { 
+        .tickets {
+            & > * {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.payment-panel {
+    background: $uling;
+    h4,h5 {
+        font-family: 'Fjalla One', sans-serif;
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
+
+.contact-panel {
+    background: $lemonsito;
+    h4,h5 {
+        font-family: 'Fjalla One', sans-serif;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .contact-list {
+        p {
+            line-height: .8em;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .half-section {
+        margin-bottom: 40px;
+    }
 }
