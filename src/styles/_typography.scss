@@ -4,12 +4,20 @@ body {
 h1, h2, h3 {
     font-family: 'Fjalla One', sans-serif;
     color: $saging;
+    text-transform: uppercase;
 }
 h1 {
     font-size: 4em;
 }
 h2 {
     font-size: 2.6em;
+}
+
+.main-titles {
+    h1 {
+        font-size: 6em;
+        letter-spacing: -2px;
+    }
 }
 
 .panel-content {

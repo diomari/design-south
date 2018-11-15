@@ -137,3 +137,11 @@
         margin-left: 16.5%
     }
 }
+
+.photo.bg-primary>a:hover img,
+.photo>a.bg-primary:hover img,
+a.photo.bg-primary:hover img {
+    opacity: .35;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}

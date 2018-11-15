@@ -1,8 +1,43 @@
 .illustration-panel {
+    position: relative;
     background: url('/public/images/illustration-bg.png') no-repeat center center;
     background-size: cover;
     .img-logo {
-        width: 380px;
+        width: 100px;
+    }
+    .main-subtitle {
+        p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+    }
+    #triangle-bottomleft {
+        width: 0;
+        height: 0;
+        border-bottom: 1000px solid $lemonsito;
+        border-right: 70vw solid transparent;
+        position: absolute;
+        z-index: 0;
+        bottom: 0;
+        @media screen and (max-width: 992px) {
+            border-bottom: 0 solid transparent;
+            border-right: 0 solid transparent;
+        }
+    }
+    #triangle-topright {
+        width: 0;
+        height: 0;
+        border-top: 800px solid $lemonsito;
+        border-right: 70vw solid transparent;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        @media screen and (max-width: 992px) {
+            border-bottom: 0 solid transparent;
+            border-right: 0 solid transparent;
+        }
     }
 }
 .event-panel {
@@ -15,10 +50,106 @@
     }
 }
 .about-panel {
+    position: relative;
+    z-index: 999;
     background: $uling;
+    .container {
+        position: relative;
+    }
+    .stamp {
+        position: absolute;
+        right: 40px;
+        width: 135px;
+    }
+    .arrows {
+        position: absolute;
+        right: 0;
+        width: 108px;
+        bottom: 0;
+    }
+}
+
+.speakers-panel {
+    background: $sikwati;
+    @import 'src';
+    .container {
+        .diamonds {
+            margin-bottom: -200px;
+            margin-top: 80px;
+            & [class*=' col-'] {
+                .diamonds-title {
+                    background: $lemonsito;   
+                }
+
+            }
+            // small viewport
+            @media (max-width: 768px) {
+                margin-bottom: 0;
+                & [class*=' col-'] {
+                    display: flex;
+                    justify-content: center;
+                    .diamonds-item {
+                        width: 80%;
+                        right: auto;
+                        left: auto;
+                    }
+                }
+            }
+            // medium viewport
+            @media (min-width: 768px) and (max-width: 995px) {
+                margin-bottom: 0;
+                
+            }
+
+            // large viewport
+            @media (min-width:996px) {
+                .diamond-1 {
+                    left: 45px;
+                    top: 2px;
+                }
+                .diamond-2 {
+                    top: -76px;
+                    right: 70px;
+                }
+                .diamond-3 {
+                    top: -76px;
+                    right: 22px;
+                }
+                .diamond-4 {
+                    top: -76px;
+                    left: 22px;
+                }
+                .diamond-5 {
+                    top: -152px;
+                }
+                .diamond-6 {
+                    top: -152px;
+                    left: 46px;
+                }
+                .diamond-last {
+                    top: -228px;
+                    left: 10px;
+                }
+            }
+        }
+    }
+    .diamond-last {
+        .diamond-center.diamonds-item {
+            left: 100%;
+            @media (max-width: 990px) {
+                left: -25%;
+            }
+        }
+    }
+    
 }
 .venue-panel {
     background: url('/public/images/bg_tickets.png') no-repeat top left ,$lemonsito;
+    background-size: cover;
+    .school-background {
+        position: absolute;
+        margin-top: -80px;
+    }
 }
 .tickets-panel {
     background: url('/public/images/bg_diamond_cropped.png') no-repeat 100% 180% , $sikwati;

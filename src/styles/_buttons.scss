@@ -2,8 +2,14 @@
     border: 0;
     color: $saging;
     font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    padding: 1rem 4rem;
+    border-radius: 0;
 }
 .btn-primary {
     background: $uling;
-    font-size: 1.8em;
+    &:hover {
+        background: #000;
+    }
 }
