@@ -21,7 +21,6 @@ const detectIcon = (links) => {
     let r = /^(?:https?:)?(?:\/\/)?([^\/\?]+)/;
     for(let link of links) {
         parser.href = link;
-        console.log(parser.hostname);
     }
     return '';
 };
