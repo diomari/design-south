@@ -1,7 +1,10 @@
 .illustration-panel {
     position: relative;
-    background: url('/public/images/illustration-bg.png') no-repeat center center;
+    background: $lemonsito;
     background-size: cover;
+    @media screen and (min-width: 993px) {
+        background: url('/public/images/illu3.png') no-repeat center center;
+    }
     .img-logo {
         width: 100px;
     }
@@ -142,6 +145,7 @@
         }
     }
     
+    
 }
 .venue-panel {
     background: url('/public/images/bg_tickets.png') no-repeat top left ,$lemonsito;
@@ -149,6 +153,11 @@
     .school-background {
         position: absolute;
         margin-top: -80px;
+    }
+    .venue {
+        a {
+            color: #fff;
+        }
     }
 }
 .tickets-panel {
@@ -159,6 +168,12 @@
             & > * {
                 margin-bottom: 30px;
             }
+        }
+    }
+    .ticket-item {
+        h5 {
+            font-size: 12px;
+            text-transform: uppercase;
         }
     }
 }

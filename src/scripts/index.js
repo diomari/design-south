@@ -9,26 +9,39 @@ let baseArrow = 0;
 
 // map what icon to use on links
 const iconLinks = {
-    facebook: 'facebook-official',
-    behance: 'behance',
-    instagram: 'instagram',
-    website: 'globe',
-    vimeo: 'vimeo-square'
+    facebook: 'fa-facebook-official',
+    behance: 'fa-behance',
+    instagram: 'fa-instagram',
+    vimeo: 'fa-vimeo-square'
 };
 
-const detectIcon = (links) => {
-    // remove the name from the url then map to the matching iconLink
+// Remove the name from the url then map to the matching iconLink
+const generateIcons = (links) => {
     let r = /^(?:https?:)?(?:\/\/)?([^\/\?]+)/;
+    let template = '';
+    const iconKeys = Object.keys(iconLinks);
     for(let link of links) {
+        let isSocial = false;
         parser.href = link;
+        for(let key of iconKeys) {
+            if(link.includes(key)) {
+                template += (`<li class="list-inline-item"> <a href="${link}" class="fa ${iconLinks[key]}" title="${link}"></a></li> `);
+                isSocial = true;
+                break;
+            }
+        }
+        if (!isSocial) {
+            template += (`<li class="list-inline-item"> <a href="${link}" class="fa fa-globe"></a></li> `);
+        }
+
     }
-    return '';
+    return template
 };
 
 // Detect change on vertical scroll then apply rotate style on stamp
 window.onscroll = (ev) => {
     let theta = window.scrollY / 10 % Math.PI;
-    baseArrow += window.scrollY/ 10 % 4;
+    baseArrow = window.scrollY/ 1000 % 10 * 600;
     document.querySelector('.stamp').style.transform = `rotate(${theta}rad)`;
     document.querySelector('.arrows').style.transform = `translateY(${baseArrow}px)`;
 };
@@ -59,9 +72,7 @@ function generateModal(speaker){
                         </div>
                     <p class="speaker-description"> ${user.description} </p>
                     <ul class="speaker-medias list-inline">
-                        <li class="list-inline-item"> <a class="soc-facebook" title="Facebook"></a></li>
-                        <li class="list-inline-item"> <a class="fa fa-facebook"></a> tw</li>
-                        <li class="list-inline-item"> <a class="fa fa-facebook"></a> ig</li>
+                        ${generateIcons(user.socials)}
                     </ul>
                 </div>
                 <div class="col-lg-6 modal-right modal-portfolio">
@@ -86,7 +97,6 @@ function generateModal(speaker){
       </div>
     </div>
   </div>`;
-    detectIcon(user.socials);
     let e = document.createElement('div');
     e.innerHTML = baseTemplate;
     let speakerModal = document.querySelector('#speaker-modal');

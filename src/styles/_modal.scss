@@ -65,4 +65,16 @@
   .speaker-medias {
     margin-top: 30px;
   }
+  .speaker-medias {
+    li {
+        a {
+            color: rgba(255,255,255,.8);
+            font-size: 1.8em;
+            &:hover {
+              text-decoration: none;
+              color: $lemonsito;
+            }
+        }
+    }
+}
 }
