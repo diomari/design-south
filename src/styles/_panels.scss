@@ -1,9 +1,10 @@
 .illustration-panel {
     position: relative;
     background: $lemonsito;
-    background-size: cover;
     @media screen and (min-width: 993px) {
-        background: url('/public/images/illu3.png') no-repeat center center;
+        background: url('/public/images/illu5.png') no-repeat top right;
+        background-size: cover;
+
     }
     .img-logo {
         width: 100px;
@@ -204,5 +205,41 @@
 @media (max-width: 767px) {
     .half-section {
         margin-bottom: 40px;
+    }
+}
+
+.sponsor-panel {
+    background: url('/public/images/bg_diamond.png') -1200px -100px no-repeat, $sikwati;
+    .sponsor-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        h3 {
+            margin-bottom: 20px;
+        }
+    }
+    .sponsor-thumbnail {
+        background: #fff;
+        height: 180px;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            max-width: 40%
+        }
+    }
+    .sponsor-thumbnails {
+        display: flex;
+        @media screen and (max-width: 993px) {
+            flex-direction: column;
+            .sponsor-thumbnail {
+                margin: 20px 0 !important;
+            }
+        }
+        .sponsor-thumbnail {
+            margin: 0 20px;
+        }
     }
 }
