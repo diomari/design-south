@@ -2,7 +2,7 @@
     position: relative;
     background: $lemonsito;
     @media screen and (min-width: 993px) {
-        background: url('/public/images/illu5.png') no-repeat top right;
+        background: url('/public/images/illu-bg.jpg') no-repeat top right;
         background-size: cover;
 
     }
@@ -228,6 +228,9 @@
         justify-content: center;
         img {
             max-width: 40%
+        }
+        img.big {
+            max-width: 70%;
         }
     }
     .sponsor-thumbnails {
