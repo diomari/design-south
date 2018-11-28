@@ -190,6 +190,19 @@
 
 .contact-panel {
     background: $lemonsito;
+    position: relative;
+    z-index: 0;
+    &::after {
+        content: "";
+        background: url('/public/images/bottom-bg.jpg') top left;
+        opacity: 0.03;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
     h4,h5 {
         font-family: 'Fjalla One', sans-serif;
         text-transform: uppercase;
@@ -199,6 +212,13 @@
         p {
             line-height: .8em;
         }
+    }
+    .footer-background {
+        width: 100%;
+    }
+    .img-footer {
+        width: 240px;
+        margin-left: -15px;
     }
 }
 
@@ -235,7 +255,9 @@
     }
     .sponsor-thumbnails {
         display: flex;
+        margin-top: 30px;
         @media screen and (max-width: 993px) {
+            margin-top: 0;
             flex-direction: column;
             .sponsor-thumbnail {
                 margin: 20px 0 !important;
