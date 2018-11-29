@@ -1,5 +1,6 @@
 import '../styles/index.scss';
 import data from './data';
+import programmeList from './programme';
 
 const static_url = 'public';
 
@@ -35,16 +36,9 @@ const generateIcons = (links) => {
         }
 
     }
-    return template
+    return template;
 };
 
-// Detect change on vertical scroll then apply rotate style on stamp
-window.onscroll = (ev) => {
-    let theta = window.scrollY / 10 % Math.PI;
-    baseArrow = window.scrollY/ 1000 % 10 * 600;
-    document.querySelector('.stamp').style.transform = `rotate(${theta}rad)`;
-    document.querySelector('.arrows').style.transform = `translateY(${baseArrow}px)`;
-};
 
 // Generates modal template on each speakers
 function generateModal(speaker){
@@ -91,9 +85,7 @@ function generateModal(speaker){
                     </div>
                 </div>
             </div>
-          
         </div>
-       
       </div>
     </div>
   </div>`;
@@ -105,13 +97,37 @@ function generateModal(speaker){
 
 // Trigger when DOM is loaded
 document.addEventListener("DOMContentLoaded",function(){
-    const speakers = document.querySelectorAll('.diamonds-item');
-    for (let speaker of speakers) {
-        if (speaker.dataset.target) {
-            generateModal(speaker.dataset.target);
-        }
-        speaker.addEventListener('click', (e) => {
-            e.preventDefault();
-        });
+    const index = document.querySelector("#index");
+    const programme = document.querySelector("#programme");
+    if (index) {
+      // Detect change on vertical scroll then apply rotate style on stamp
+      window.onscroll = (ev) => {
+        let theta = window.scrollY / 10 % Math.PI;
+        baseArrow = window.scrollY/ 1000 % 10 * 600;
+        document.querySelector('.stamp').style.transform = `rotate(${theta}rad)`;
+        document.querySelector('.arrows').style.transform = `translateY(${baseArrow}px)`;
+      };
+      const speakers = document.querySelectorAll('.diamonds-item');
+      for (let speaker of speakers) {
+          if (speaker.dataset.target) {
+              generateModal(speaker.dataset.target);
+          }
+          speaker.addEventListener('click', (e) => {
+              e.preventDefault();
+          });
+      }
+    } else if (programme) {
+      document.querySelector("#programme-list").innerHTML = generateList();
     }
 });
+  
+const generateList = () => {
+  let template = '';
+  for (let item of programmeList) {
+      template += (`<li class="list-item"><span class="yellow">${item.time}</span> <span>${item.title}</span></li>`);
+  }
+  return template;
+};
+
+
+  

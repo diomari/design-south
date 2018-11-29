@@ -1,6 +1,6 @@
-# Webpack Frontend Starterkit
+# Design South
 
-A lightweight foundation for your next webpack based frontend project.
+Design South Marketing Site
 
 
 ### Installation
